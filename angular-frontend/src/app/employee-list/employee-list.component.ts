@@ -11,16 +11,22 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeListComponent implements OnInit {
   employees: Employee[];
   page:number;
+  isConnected:boolean
+linkValue: any;
   constructor(private employeeservice: EmployeeService, 
     private router: Router){}
 
   ngOnInit(): void {
     this.getEmployees()
+    this.isConnected=true;
   }
   private getEmployees(){
     this.employeeservice.getEmployeesList().subscribe(data=>{
       this.employees=data;
     });
+  }
+  employeeDetails(id:number){
+    this.router.navigate(['employee-details', id]);
   }
   updateEmployee(Id: number){
     this.router.navigate(['update-employee', Id]);

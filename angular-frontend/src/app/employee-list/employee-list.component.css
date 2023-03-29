@@ -1,0 +1,44 @@
+i{
+    vertical-align: middle;
+}
+.employeeDetail{
+    color: blue;
+}
+.employeeDetails{
+    color: blue;
+}
+.employeeDetail:hover{
+    color: red;
+    cursor:pointer;
+}
+.employeeDetails:hover{
+    color: black;
+    cursor:pointer;
+}
+.pi.pi-angle-right{
+    color: black;
+}
+.add_news{
+    cursor: pointer;
+    float: right;
+
+}
+.add_news:hover{
+    color:green
+}
+#edit_news{
+    cursor: pointer;
+    float: right;
+}
+#edit_news:hover{
+    color:red;
+}
+#delete_news{
+    cursor: pointer;
+    float: right;
+    margin-right: 10px;
+}
+#delete_news:hover{
+    color:red
+    
+}

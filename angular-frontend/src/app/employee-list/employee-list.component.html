@@ -1,25 +1,47 @@
+
 <h2>Employee List</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email Id</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let employee of employees | paginate: { itemsPerPage: 10, currentPage: page }">
-            <td>{{employee.id}}</td>
-            <td>{{employee.firstName}}</td>
-            <td>{{employee.lastName}}</td>
-            <td>{{employee.emailId}}</td>
-            <td>
-                <button (click)="updateEmployee(employee.id)" class = "btn btn-primary">Update</button>
-                <button (click)="deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left:10px"> Delete </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="add_news" *ngIf="!isConnected">
+    <i class="pi pi-plus" routerLink="/create-employee"></i>
+</div>
+<div class="news">
+
+    <table class="table table">
+        <tbody>
+            <tr *ngFor="let employee of employees | paginate: { itemsPerPage:10, currentPage: page }">
+               <!--
+                   
+                   <td><div><img src="http://inf.ucv.ro/TempImg/news_noimage.png" alt=""></div></td>
+                   <td><img src="http://inf.ucv.ro/gallery/noutati/_2.png" alt=""></td>
+                --> 
+                <td>
+                    <div>
+                        
+                        <div class="employeeDetail" (click)="employeeDetails(employee.id)">uitate</div>
+                        <p></p>
+                        <p>
+                            <td>asdasdasdasdasdaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssss<br>asdasdasdasdsadasd<br></td>
+                        </p>
+                        <!--
+                            
+                            <div class="employeeDetails">
+                                <a (click)="employeeDetails(employee.id)" style="cursor:pointer;margin-right:10px;">Citeste mai mult</a>
+                                <i class="pi pi-angle-right"></i>
+                            </div>
+                        -->
+                    </div>
+                </td>
+                
+                <td>
+                    <div>
+                        <br><br>
+                        <div *ngIf="!isConnected">
+                            <i id="edit_news" (click)="updateEmployee(employee.id)" class="pi pi-file-edit"></i>
+                            <i id="delete_news" (click)="deleteEmployee(employee.id)" class="pi pi-times"></i>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <pagination-controls (pageChange)="pagechange($event)"></pagination-controls>
